@@ -83,6 +83,7 @@
                     @error('password')
                     <template v-slot:invalid>{{ $message }}</template>
                     @enderror
+                    <a href="{{ route('password.reset') }}">現在のパスワードを忘れた場合</a>
                 </list-view-form-group>
             </list-view>
 

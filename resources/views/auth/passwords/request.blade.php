@@ -18,9 +18,9 @@
                 <list-view-form-group label-for="login_id">
                     <template v-slot:label>学籍番号または連絡先メールアドレス</template>
                     <input id="login_id" type="text" class="form-control @error('login_id') is-invalid @enderror"
-                        name="login_id" value="{{ old('login_id') }}" required autofocus>
+                           name="login_id" value="{{ auth()->user()->email ?? old('login_id') }}" required autofocus>
                     @error('login_id')
-                    <template v-slot:invalid>{{ $message }}</template>
+                        <template v-slot:invalid>{{ $message }}</template>
                     @enderror
                 </list-view-form-group>
             </list-view>

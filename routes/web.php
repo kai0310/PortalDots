@@ -72,10 +72,10 @@ Route::prefix('/password')
         Route::get('/reset', 'Auth\Password\ResetStartAction')->name('request');
         Route::post('/reset', 'Auth\Password\PostResetStartAction');
 
-        Route::middleware('signed')
+        Route::middleware('auth')
             ->group(function () {
-                Route::get('/reset/{user}', 'Auth\Password\ResetPasswordAction')->name('reset');
-                Route::post('/reset/{user}', 'Auth\Password\PostResetPasswordAction');
+                Route::get('/reset', 'Auth\Password\ResetPasswordAction')->name('reset');
+                Route::post('/reset', 'Auth\Password\PostResetPasswordAction');
             });
     });
 
